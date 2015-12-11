@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+  h1.
+    Todo List
+  ul
+    p Add new task in your todolist
+    form#formAddTodo(name="addtodo", method="post", action="/addtodo")
+        input(type="text", name="todoLabel" placeholder="New task")
+        button#btnSubmit(type="submit") submit
+    br
+    each todo, i in todolist
+        input(type="checkbox", checked=todo.state) 
+        span #{todo.label}
+        br
